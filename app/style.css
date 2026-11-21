@@ -1,0 +1,326 @@
+/* Boulevard Cover Studio — editor styles. Dark neon theme, sunset accents. */
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./fonts/Pacifico-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #f4eefc;
+  --muted: #b9a8d6;
+  --panel: #1d1030;
+  --panel-edge: #3a2360;
+  --accent: #ff5e7a;
+  --accent-2: #2ee6ff;
+  --gold: #ffb347;
+  --bg: #12081f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(255, 94, 122, 0.28), transparent 60%),
+    radial-gradient(800px 500px at -10% 20%, rgba(46, 230, 255, 0.14), transparent 55%),
+    linear-gradient(180deg, #1a0b2e 0%, var(--bg) 55%, #0b0514 100%);
+  color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.masthead {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 22px 20px 6px;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.masthead h1 span {
+  background: linear-gradient(90deg, var(--gold), var(--accent) 55%, #e84393);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.masthead p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.app {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 20px 8px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.group {
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+}
+
+.group h2 {
+  margin: 0 0 10px;
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.group label {
+  display: block;
+  margin: 8px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.group input[type="text"],
+.group select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--panel-edge);
+  background: #0f0620;
+  color: var(--ink);
+  font: inherit;
+}
+
+.group input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.file-label {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #d6336c, #8b2fd6);
+  color: #fff;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.file-label input { display: none; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 9px;
+}
+
+button.ghost {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--panel-edge);
+  color: var(--ink);
+}
+
+button.ghost:hover { border-color: var(--accent-2); }
+
+button.primary {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px 16px;
+  background: linear-gradient(90deg, #ff7a5c, #e84393 60%, #8b2fd6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+button.primary:hover { filter: brightness(1.12); }
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 6px 0;
+}
+
+.choice {
+  padding: 7px 11px;
+  background: #0f0620;
+  border: 1px solid var(--panel-edge);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.choice.active {
+  border-color: var(--gold);
+  background: #2b1547;
+  color: var(--gold);
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.panel-label { margin: 0 0 6px; font-size: 13px; color: var(--muted); }
+.panel-label span { color: var(--accent-2); font-weight: 700; }
+
+.row { display: flex; gap: 8px; }
+.row .ghost { flex: 1; }
+
+.tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tray-empty { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+
+.thumb {
+  position: relative;
+  width: 76px;
+  padding: 0;
+  border: 2px solid var(--panel-edge);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0f0620;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 56px;
+  object-fit: cover;
+}
+
+.thumb span {
+  display: block;
+  padding: 2px 4px;
+  font-size: 11px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumb:hover { border-color: var(--accent-2); }
+
+#status {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--accent-2);
+}
+
+.stage {
+  position: sticky;
+  top: 12px;
+  text-align: center;
+}
+
+#cover {
+  max-width: 100%;
+  max-height: calc(100vh - 110px);
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  cursor: grab;
+  touch-action: none;
+  background: #160a24;
+}
+
+#cover:active { cursor: grabbing; }
+
+.stage-hint {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+.file-label:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+.foot {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 6px 20px 26px;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+/* Screenshot scenes: the cover alone, filling the frame. */
+body.shot-cover {
+  background: #0b0514;
+}
+
+body.shot-cover .masthead,
+body.shot-cover .controls,
+body.shot-cover .foot,
+body.shot-cover .stage-hint {
+  display: none;
+}
+
+body.shot-cover .app {
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.shot-cover .stage {
+  position: static;
+}
+
+body.shot-cover #cover {
+  display: block;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .stage { position: static; }
+  .masthead h1 { font-size: 30px; }
+}
